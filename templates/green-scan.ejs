@@ -49,13 +49,16 @@
           </div>
       </div>
       <div class="page"> 
-        <!-- TODO: Add hover function -->
-        <button class="info">
+        <button id="info">
           <span> What's this? </span>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
             <path fill="black" d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10m0-2a8 8 0 1 0 0-16a8 8 0 0 0 0 16m-1-5h2v2h-2zm2-1.645V14h-2v-1.5a1 1 0 0 1 1-1a1.5 1.5 0 1 0-1.471-1.794l-1.962-.393A3.501 3.501 0 1 1 13 13.355" />
           </svg>
         </button>
+        <div id="info-box">
+          This is a feature that allows you to upload a photo of a barcode to determine 
+          if the packaging is recyclable or not. Try it out by pressing the camera button below!
+        </div>
         <div class="header">
           <div class="heading">
             <span id="name">GreenScan</span>
@@ -78,12 +81,24 @@
               Please take this material to a special recycling location </p>
             </div>
           </div>
+          <!-- add image upload feature on click -->
           <button class="camera_button" onclick="handleClick()">          
             <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
             <path fill="currentColor" fill-rule="evenodd" d="M7.574 4.336A3 3 0 0 1 10.07 3h3.86a3 3 0 0 1 2.496 1.336l.812 1.219A1 1 0 0 0 18.07 6H19a3 3 0 0 1 3 3v9a3 3 0 01-3 3H5a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3h.93a1 1 0 0 0 .832-.445l.812-1.22zM10 13a2 2 0 11 4 0a2 2 0 0 1-4 0m2-4a4 4 0 1 0 0 8a4 4 0 0 0 0-8" clip-rule="evenodd"/></svg>
           </button>
 
           <script>
+            const button = document.getElementById("info");
+            const info_box = document.getElementById("info-box");
+            
+            button.addEventListener('mouseenter', () => {
+              info_box.style.visibility = 'visible';
+            });
+
+            button.addEventListener('mouseleave', () => {
+              info_box.style.visibility = 'hidden';
+            });
+
             function handleClick() {
               console.log("clicked");
             }

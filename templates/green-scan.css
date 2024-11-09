@@ -35,7 +35,7 @@
     color: #1F4B22;
 }
 
-.info {
+#info {
     font-family: "Inter", "Arial", sans-serif;
     font-size: 20px;
     display: flex; 
@@ -47,6 +47,20 @@
     border: none;
     width: 175px;
     background: transparent;
+}
+
+#info-box {
+    visibility: hidden;
+    font-family: "Inter", "Arial", sans-serif;
+    position: absolute;
+    top: 40px; 
+    right: 100px;
+    padding: 15px;
+    background-color: #1F4B22;
+    color: white;
+    border-radius: 10px;
+    width: 200px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 #answer-box {
