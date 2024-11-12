@@ -5,6 +5,7 @@
     "express": "^4.21.1",
     "express-flash": "^0.0.2",
     "express-session": "^1.18.0",
+    "multer": "^1.4.5-lts.1",
     "sqlite3": "^5.1.7"
   }
 }
