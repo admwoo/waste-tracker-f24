@@ -63,6 +63,19 @@
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
 }
 
+#recyclable-info {
+    visibility: visible;
+}
+
+#file-upload {
+    visibility: hidden;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+}
+
 #answer-box {
     background-color: #A1D88E;
     width: 269px;

@@ -74,6 +74,7 @@
         </div>
         <div class="camera">
           <div class = "camera_screen">
+            <input type="file" id="file-upload" accept="image/*">
             <div id="recyclable-info">
               <p style="font-weight: bold; font-size: 30px;">Is it recyclable? </p>
               <div id="answer-box"> YES </div> 
@@ -82,7 +83,7 @@
             </div>
           </div>
           <!-- add image upload feature on click -->
-          <button class="camera_button" onclick="handleClick()">          
+          <button class="camera_button" onclick="handleCameraClick()">          
             <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24">
             <path fill="currentColor" fill-rule="evenodd" d="M7.574 4.336A3 3 0 0 1 10.07 3h3.86a3 3 0 0 1 2.496 1.336l.812 1.219A1 1 0 0 0 18.07 6H19a3 3 0 0 1 3 3v9a3 3 0 01-3 3H5a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3h.93a1 1 0 0 0 .832-.445l.812-1.22zM10 13a2 2 0 11 4 0a2 2 0 0 1-4 0m2-4a4 4 0 1 0 0 8a4 4 0 0 0 0-8" clip-rule="evenodd"/></svg>
           </button>
@@ -99,9 +100,22 @@
               info_box.style.visibility = 'hidden';
             });
 
-            function handleClick() {
+            function handleCameraClick() {
+              const info = document.getElementById("recyclable-info"); 
+              const file_upload = document.getElementById("file-upload"); 
+              if (info.style.visibility == "visible") {
+                info.style.visibility = "hidden";
+                file_upload.style.visibility = "visible";
+              } else {
+                info.style.visibility = "visible"; 
+                file_upload.style.visibility = "hidden";
+              }
               console.log("clicked");
             }
+
+            // function handleUploadClick() {
+            //   console.log("hi");
+            // }
           </script>
         </div>
         <span id="try-again-text"> Press the camera button to scan another barcode! </span>
