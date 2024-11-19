@@ -3,35 +3,36 @@ import json
 import cv2
 from pyzbar.pyzbar import decode
 
+
+def take_photo(filename='photo.jpg'):
+   """Takes a photo using the default camera and saves it to the specified filename."""
+
+   # Initialize the camera
+   cap = cv2.VideoCapture(0)
+
+   if not cap.isOpened():
+       print("Error: Could not open camera.")
+       return
+
+   while True:   
+   # Capture a frame
+       ret, frame = cap.read()
+       if not ret:
+           print("Failed to capture frame")
+           break
+       cv2.imshow("test", frame)
+
+   cap.release()
+   cv2.destroyAllWindows()
+
 def get_barcode():
-    cap = cv2.VideoCapture(0)
-    # width
-    cap.set(3, 640)
-    #height
-    cap.set(4, 480)
-    camera = True
-
+    take_photo()
+    img = cv2.imread("barcode_imgs/photo.png")
     barcode = ""
-    confirm_count = 0
-    confirm_limit = 10
-
-    while camera == True:
-        success, frame = cap.read()
-        
-        if confirm_count == confirm_limit:
-            break
-
-        for code in decode(frame):
-            print(code.data.decode("utf-8"))
-
-            if code.data.decode("utf-8") != barcode:
-                barcode = code.data.decode("utf-8")
-                confirm_count = 0
-            else:
-                confirm_count += 1
-            
-        cv2.imshow("Testing-code-scan", frame)
-        cv2.waitKey(1)
+    for code in decode(img):
+        barcode = code.data.decode("utf-8")
+        print(code.type)
+        print(code.data.decode("utf-8"))
     
     return barcode
 
@@ -46,7 +47,6 @@ def get_packaging_info():
     if data and 'product' in data:
         product = data['product']
         packaging = product.get('packaging', None)  # Safely get 'packaging'
-
 
         if packaging:
             print(packaging)
@@ -63,3 +63,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+    #app.run(debug=True)
+
