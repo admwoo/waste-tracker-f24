@@ -74,6 +74,11 @@
     border-radius: 5px;
     cursor: pointer;
     position: absolute;
+    /* color: black; */
+    color: #1F4B22;
+    font-size: large;
+    font-weight: bold;
+    /* border: solid #26662B 1px; */
 }
 
 #answer-box {
